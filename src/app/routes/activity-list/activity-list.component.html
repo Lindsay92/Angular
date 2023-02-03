@@ -1,0 +1,50 @@
+<p>activity-list works!</p>
+
+<h1 class="text-center m-4">{{pageTitle}}</h1>
+            
+
+                <!-- <form class="">
+                    <label for="search" class="form-label fw-semibold">Filtrer</label>
+                    <div class="input-group  col-12 col-md-4">
+                        <input type="text" class="form-control" id="search" > [(ngModel)]='listFilter'
+                        <button class="btn btn-outline-secondary" type="submit">bouton</button>
+                    </div>
+                </form> -->
+
+            
+
+            <section>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Filtrer</span>
+                    <input type="text" class="form-control" [(ngModel)]="listFilter">
+                </div>
+            </section>
+
+                
+<section class="row justify-content-center fw-semibold text-center m-5">
+
+                <div class="col-md-6" *ngFor="let activity of filteredActivities">
+
+                    <div class="card m-1">
+                        <img *ngIf="showImage"
+                        [src]="activity.imageUrl"
+                        [title]="activity.activityName"
+                    >
+                        <div class="card-body my-1">
+                            <h2>{{activity.activityName}}</h2>
+                            <p class="card-text">{{activity.description}}</p>
+                            <a href=""><img src="src/resources/images/heart.svg"></a>
+                        </div>
+                    </div>
+                </div>
+            
+            </section>
+                <div class="row">
+                    <div class="d-flex justify-content-end">
+                        <button class="btnColor" id="scrollUp">
+                            <a href="#top"><img class="btn" src="src/resources/images/arrow-up.svg"/></a>
+                        </button>
+                    </div>
+                </div>
+
+                

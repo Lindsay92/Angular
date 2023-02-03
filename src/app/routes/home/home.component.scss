@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
+$title-font-stack: "Indie flower";
+$item-font-stack: "Oswald";
+$main-color: black;
+
+/********LINKS******/
+
+.link {
+    text-decoration: none;
+    color:$main-color;
+}
+
+.link:hover {
+    color: $main-color;
+}
+
+.nav-link:hover{
+    text-decoration: underline;
+}
+
+.link-title:hover{
+    text-decoration: underline;
+    color: lightslategray;
+}
+
+.link-title{
+    color: $main-color;
+    text-decoration: none;
+}
+
+/********IMAGE AND TITLE*******/
+
+.card{
+    width: 18rem;
+}
+
+h2{
+    font-family: 'Indie Flower', cursive;
+}
+.navbar .color{
+    background-color: lightslategray;
+}
+
+.card-img-top:hover{
+    box-shadow: 10px 5px 5px lightslategray;
+}

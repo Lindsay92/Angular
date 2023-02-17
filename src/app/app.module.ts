@@ -9,6 +9,8 @@ import { ActivityListComponent } from './routes/activity-list/activity-list.comp
 import { ROUTES } from './app.routes';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { LoginComponent } from './routes/login/login.component';
+import { AboutComponent } from './routes/about/about.component';
 
 
 
@@ -18,7 +20,9 @@ import { FormsModule } from '@angular/forms';
     HomeComponent,
     NavbarComponent,
     FooterComponent,
-    ActivityListComponent
+    ActivityListComponent,
+    LoginComponent,
+    AboutComponent,
   ],
   imports: [
     BrowserModule,

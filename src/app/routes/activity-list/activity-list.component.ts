@@ -8,7 +8,7 @@ import { IActivity } from './activity';
 })
 
 export class ActivityListComponent implements OnInit {
-  pageTitle = 'La liste des prestations';
+  pageTitle = 'Les activités et restaurants proposés';
   // listFilter = 'museum';
   showImage = true;
 

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IActivity } from './activity';
+import { IActivity, activities } from './activity';
 
 @Component({
   selector: 'app-activity-list',
@@ -26,32 +26,35 @@ export class ActivityListComponent implements OnInit {
 
   filteredActivities: IActivity[] = []; 
 
-  activities: IActivity[] = [
-    {
-    activityId: 1,
-    activityName: 'museum',
-    description: 'bonjour',
-    imageUrl: 'assets/images/accueilImage/house.jpg',
-    },
-    {
-    activityId: 2,
-    activityName: 'flower',
-    description: 'bonjour',
-    imageUrl: 'assets/images/accueilImage/flower2.jpg',
-    },
-    {
-    activityId: 3,
-    activityName: 'forest',
-    description: 'bonjour',
-    imageUrl: 'assets/images/accueilImage/forest.jpg',
-    },
-    {
-      activityId: 4,
-      activityName: 'museum',
-      description: 'bonjour',
-      imageUrl: 'assets/images/accueilImage/house.jpg',
-      }
-  ]
+  // activities: IActivity[] = [
+  //   {
+  //   activityId: 1,
+  //   activityName: 'museum',
+  //   description: 'bonjour',
+  //   imageUrl: 'assets/images/accueilImage/house.jpg',
+  //   },
+  //   {
+  //   activityId: 2,
+  //   activityName: 'flower',
+  //   description: 'bonjour',
+  //   imageUrl: 'assets/images/accueilImage/flower2.jpg',
+  //   },
+  //   {
+  //   activityId: 3,
+  //   activityName: 'forest',
+  //   description: 'bonjour',
+  //   imageUrl: 'assets/images/accueilImage/forest.jpg',
+  //   },
+  //   {
+  //     activityId: 4,
+  //     activityName: 'museum',
+  //     description: 'bonjour',
+  //     imageUrl: 'assets/images/accueilImage/house.jpg',
+  //     }
+  // ]
+
+  //je remplace mon code dur avec la constance créée dans mon interface activity.ts
+  activities = activities;
 
 
   constructor() {
@@ -68,4 +71,8 @@ export class ActivityListComponent implements OnInit {
 
     return this.activities.filter((activity: IActivity)=> activity.activityName.toLocaleLowerCase().includes(filterBy));
   }
+
+   button = document.getElementById("scrollUp");
+
+
 }

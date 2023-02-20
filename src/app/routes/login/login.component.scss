@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
+$title-font-stack: "Indie flower";
+$item-font-stack: "Oswald";
+$main-color: black;
+$navBackground: lightslategray;
+
+h1, .link {
+    font-family: $item-font-stack, cursive;
+}
+
+/********LINKS******/
+
+.link {
+    text-decoration: none;
+    color:$main-color;
+}
+
+.link:hover{
+    text-decoration: underline;
+    color: lightslategray;
+}

@@ -5,6 +5,10 @@ $title-font-stack: "Indie flower";
 $item-font-stack: "Oswald";
 $main-color: black;
 
+h1, .activity-list {
+    font-family: $item-font-stack, cursive;
+}
+
 /********LINKS******/
 
 .link {
@@ -14,10 +18,6 @@ $main-color: black;
 
 .link:hover {
     color: $main-color;
-}
-
-.nav-link:hover{
-    text-decoration: underline;
 }
 
 .link-title:hover{

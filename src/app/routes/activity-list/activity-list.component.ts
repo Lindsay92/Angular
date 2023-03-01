@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { IActivity, activities } from './activity';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { ActivityService } from 'src/app/services/activity.service';
+import { IActivity } from './activity';
 
 @Component({
   selector: 'app-activity-list',
@@ -7,10 +9,12 @@ import { IActivity, activities } from './activity';
   styleUrls: ['./activity-list.component.scss']
 })
 
-export class ActivityListComponent implements OnInit {
+export class ActivityListComponent implements OnInit, OnDestroy {
   pageTitle = 'Les activités et restaurants proposés';
   // listFilter = 'museum';
   showImage = true;
+  errorMessage: string = ""; 
+  sub!: Subscription; //sub is a type of Subscription
 
 
   private _listFilter: string ='';
@@ -26,53 +30,39 @@ export class ActivityListComponent implements OnInit {
 
   filteredActivities: IActivity[] = []; 
 
-  // activities: IActivity[] = [
-  //   {
-  //   activityId: 1,
-  //   activityName: 'museum',
-  //   description: 'bonjour',
-  //   imageUrl: 'assets/images/accueilImage/house.jpg',
-  //   },
-  //   {
-  //   activityId: 2,
-  //   activityName: 'flower',
-  //   description: 'bonjour',
-  //   imageUrl: 'assets/images/accueilImage/flower2.jpg',
-  //   },
-  //   {
-  //   activityId: 3,
-  //   activityName: 'forest',
-  //   description: 'bonjour',
-  //   imageUrl: 'assets/images/accueilImage/forest.jpg',
-  //   },
-  //   {
-  //     activityId: 4,
-  //     activityName: 'museum',
-  //     description: 'bonjour',
-  //     imageUrl: 'assets/images/accueilImage/house.jpg',
-  //     }
-  // ]
+  activities: IActivity[] = [];
 
+  
   //je remplace mon code dur avec la constance créée dans mon interface activity.ts
-  activities = activities;
+  // activities = activities;
 
 
-  constructor() {
+  constructor(private activityService: ActivityService) {
 
   }
 
   ngOnInit(): void {
-    this.listFilter= '';
-    
+    this.sub = this.activityService.getActivities()
+    .subscribe({
+      next: activities => {
+        this.activities = activities;
+        this.filteredActivities = this.activities;
+      },
+      error: err => this.errorMessage = err
+    });    
+  }
+
+  ngOnDestroy(): void {
+    this.sub.unsubscribe();
   }
 
   performFilter(filterBy: string): IActivity[] {
     filterBy = filterBy.toLocaleLowerCase();
-
-    return this.activities.filter((activity: IActivity)=> activity.activityName.toLocaleLowerCase().includes(filterBy));
+    return this.activities.filter((activity: IActivity) => 
+      activity.activityName.toLocaleLowerCase().includes(filterBy));
   }
 
-   button = document.getElementById("scrollUp");
+  button = document.getElementById("scrollUp");
 
 
 }

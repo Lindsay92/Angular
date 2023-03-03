@@ -1,0 +1,28 @@
+<p>auth works!</p>
+
+<h2 class="text-center m-3">S'enregistrer</h2>
+
+<form class="container col-12 col-md-4 p-3" [formGroup]="authForm" (ngSubmit)="onSubmit()">
+       
+            <div class="mb-3">
+                <label for="firstName" class="form-label">Prénom*</label>
+                <input type="text"  id="firtsName"
+                class="form-control" formControlName="firstName">
+            </div>
+            <div class="mb-3">
+                <label for="lastName" class="form-label">Nom*</label>
+                <input type="text"
+                id="lastName" class="form-control" formControlName="lastName">
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email*</label>
+                <input type="email" id="email" class="form-control" formControlName="email">
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Mot de passe*</label>
+                <input type="text" id="password" class="form-control" formControlName="password">
+            </div>
+        
+            <button type="submit" [disabled]="!authForm.valid" class="btn btn-secondary">S'enregistrer</button>
+      
+</form>

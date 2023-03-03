@@ -10,19 +10,20 @@ import { IActivity } from './activity';
 })
 
 export class ActivityListComponent implements OnInit, OnDestroy {
-  pageTitle = 'Les activités et restaurants proposés';
+  pageTitle = 'Les activités et restaurants proposés'; //interpolation (binding)
   // listFilter = 'museum';
   showImage = true;
   errorMessage: string = ""; 
   sub!: Subscription; //sub is a type of Subscription
 
 
-  private _listFilter: string ='';
-  get listFilter(): string {
+  private _listFilter: string =''; //when using getter/setter syntax there is n backing variable automatically defined to actually hold the value so we need another often private variable to retain that value
+  //use underscore before the variable name to indicate that it's a private variable and should not be accessed except trough the getter/setter
+  get listFilter(): string { //execute when the property value is requested
     return this._listFilter;
   }
 
-  set listFilter(value: string) {
+  set listFilter(value: string) { //executed when the property value is set called. the setter passes in th value to be set so no need specify a return type
     this._listFilter = value;
     console.log("in setter:", value);
     this.filteredActivities = this.performFilter(value);

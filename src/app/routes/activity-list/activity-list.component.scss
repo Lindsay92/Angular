@@ -8,3 +8,13 @@ $main-color: black;
 h1, h2, span, .card-text {
     font-family: $item-font-stack, cursive;
 }
+
+.link-title{
+    color: $main-color;
+    text-decoration: none;
+}
+
+.link-title:hover{
+    text-decoration: underline;
+    color: lightslategray;
+}

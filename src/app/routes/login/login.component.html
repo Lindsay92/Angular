@@ -2,22 +2,27 @@
 
 <h1 class="text-center m-3">Se connecter</h1>
 <section class="row justify-content-center">
-    <form class="col-md-6 ">
+    <form class="col-md-6 " [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <div class="mb-3">
         <label for="email" class="form-label">Email</label>
-        <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+        <input type="email" class="form-control" id="email" formControlName="email" value="">
         </div>
 
         <div class="mb-3">
         <label for="password" class="form-label">Mot de passe</label>
-        <input type="password" class="form-control" id="password">
+        <input type="text" class="form-control" id="password" formControlName="password" value="">
         </div>
     
 
-        <button type="submit" class="btn btn-primary">Envoyer</button>
+        <button type="submit" [disabled]="!loginForm.valid" class="btn btn-secondary">Envoyer</button>
     </form>
 
         <p class="text-center m-3">
-            <a  class="link" href="">Si vous n’avez pas de compte, cliquez sur le lien</a>
+            <a routerLink="/register" routerLinkActive="active" class="link">Si vous n’avez pas de compte, cliquez sur le lien</a>
         </p>
+
+        <p>status: {{loginForm.status}}</p>
+        <p>Touched: {{loginForm.touched}}</p>
+        <p>Dirty: {{loginForm.dirty}}</p>
+        <p>Values: {{loginForm.value}}</p>
 </section>

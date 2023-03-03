@@ -4,6 +4,8 @@ export interface IActivity {
     activityName: string;
     description: string;
     imageUrl: string;
+    location: string;
+    link: string
     
 }
 

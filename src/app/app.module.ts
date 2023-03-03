@@ -8,10 +8,11 @@ import { FooterComponent } from './shared/components/footer/footer.component';
 import { ActivityListComponent } from './routes/activity-list/activity-list.component';
 import { ROUTES } from './app.routes';
 import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './routes/login/login.component';
 import { AboutComponent } from './routes/about/about.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AuthComponent } from './routes/auth/auth.component';
 
 
 
@@ -24,12 +25,15 @@ import { HttpClientModule } from '@angular/common/http';
     ActivityListComponent,
     LoginComponent,
     AboutComponent,
+    AuthComponent,
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(ROUTES),
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

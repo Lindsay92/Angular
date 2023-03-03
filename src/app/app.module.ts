@@ -32,7 +32,6 @@ import { AuthComponent } from './routes/auth/auth.component';
     RouterModule.forRoot(ROUTES),
     FormsModule,
     HttpClientModule,
-    FormsModule,
     ReactiveFormsModule
   ],
   providers: [],

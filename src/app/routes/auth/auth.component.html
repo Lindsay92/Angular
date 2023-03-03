@@ -6,8 +6,11 @@
        
             <div class="mb-3">
                 <label for="firstName" class="form-label">Prénom*</label>
-                <input type="text"  id="firtsName"
-                class="form-control" formControlName="firstName">
+                <input type="text"  id="firstName"
+                class="form-control" formControlName="firstName" [ngClass]="">
+                <span class="invalid-feedback">
+                <p *ngIf="">message d'erreur</p>
+                </span>
             </div>
             <div class="mb-3">
                 <label for="lastName" class="form-label">Nom*</label>
